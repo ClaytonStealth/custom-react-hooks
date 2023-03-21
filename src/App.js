@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+import useStringHook from "./hooks/StringHook";
 function App() {
+  const { stringHook, setStringHook, customWords } = useStringHook();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App App-header'>
+      <h1>Custom String Hooks</h1>
+      <p>{stringHook}</p>
+      <input onChange={(e) => setStringHook(e.target.value)} />
+      {customWords}
     </div>
   );
 }
